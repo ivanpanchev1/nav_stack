@@ -1,0 +1,14 @@
+<launch>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="/home/ivan/rbs/src/nav_stack/src/stage_params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="/home/ivan/rbs/src/nav_stack/src/stage_params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="/home/ivan/rbs/src/nav_stack/src/stage_params/local_costmap_params.yaml" command="load" />
+    <rosparam file="/home/ivan/rbs/src/nav_stack/src/stage_params/global_costmap_params.yaml" command="load" />
+    <rosparam file="/home/ivan/rbs/src/nav_stack/src/stage_params/base_local_planner_params.yaml" command="load" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_odom" args="0 0 0.1397 0 0 0 base_link odom 1" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_map" args="0 0 0.1397 0 0 0 base_link map 1" />
+</launch>
+

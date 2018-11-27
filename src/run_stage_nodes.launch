@@ -1,0 +1,14 @@
+
+<launch>
+  <master auto="start"/>
+
+  <!-- Run Stage -->
+  <!--<node name="stageros" pkg="stage" type="stageros" args="/home/ivan/rbs/src/intelligent-robotics-2018/map/cs_lg_map.world" /> -->
+  <!-- Run Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" />
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/ivan/rbs/src/intelligent-robotics-2018/map/cs_lg_map.yaml" />
+  <!--- Run AMCL -->
+  <node name="amcl" pkg="amcl" type="amcl" args="scan:=base_scan" />
+
+</launch>
